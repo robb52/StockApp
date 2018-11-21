@@ -1,10 +1,12 @@
 <%= form_tag root_path, method: "POST" do %>
     <%= text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Symbol', size: 50  %>
-    <%= submit_tag 'Submit' %>
+    <%= submit_tag 'Look Up Stock Quote' %>
   </div>
 <% end %>
 
-
-<% stock = StockQuote::Stock.quote("goog") %>
-
-<%= stock.inspect %>
+<% if @stock %>
+  <%= @stock.company_name %>
+<% elsif @nothing %>
+  <%= @nothing %>
+<% end %>
+    

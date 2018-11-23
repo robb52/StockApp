@@ -5,8 +5,18 @@
 <% end %>
 
 <% if @stock %>
-  <%= @stock.company_name %>
+  <strong>Company Name: </strong><%= @stock.company_name %><br/>
+  <strong>Symbol: </strong><%= @stock.symbol %><br/>
+  <strong>Stock Open: </strong><%= @stock.open %><br/>
+  <strong>Stock Close: </strong><%= @stock.close %><br/>
+  <strong>Stock High: </strong><%= @stock.high %><br/>
+  <strong>Stock Low: </strong><%= @stock.low %><br/>
+  <strong>Volume: </strong><%= @stock.latest_volume %><br/>
+  <strong>Change Percent: </strong><%= @stock.change_percent %><br/>
+  <strong>Market Cap: </strong><%= @stock.market_cap %>
 <% elsif @nothing %>
   <%= @nothing %>
 <% end %>
+
+
     

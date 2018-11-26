@@ -1,6 +1,10 @@
-<h1>Editing Stock</h1>
+<div class="container edit stock">
 
-<%= render 'form', stock: @stock %>
+  <h1>Editing Stock</h1>
 
-<%= link_to 'Show', @stock %> |
-<%= link_to 'Back', stocks_path %>
+  <%= render 'form', stock: @stock %>
+
+  <%= link_to 'Show', @stock, class: "edit show" %><br/> 
+  <%= link_to 'Back', stocks_path, class: "back show" %>
+
+</div>

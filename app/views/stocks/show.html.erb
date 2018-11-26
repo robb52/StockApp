@@ -1,12 +1,23 @@
-<p>
-  <strong>Ticker:</strong>
-  <%= @stock.ticker %>
-</p>
+<div class="container show">
 
-<p>
-  <strong>User:</strong>
-  <%= @stock.user_id %>
-</p>
+  <h1></h1>
+  <% begin %>
+    <% @stock = StockQuote::Stock.quote(@stock.ticker) %>
+    <% rescue StandError %>
+  <% end %>
+  
+  <h3><%= @stock.company_name %> - <%= @stock.symbol %></h3><br/>
+  <h4>$<%= @stock.open %></h4><br/>
+  <strong>Stock Close: </strong><%= @stock.close %><br/>
+  <strong>Stock High: </strong><%= @stock.high %><br/>
+  <strong>Stock Low: </strong><%= @stock.low %><br/>
+  <strong>Volume: </strong><%= @stock.latest_volume %><br/>
+  <strong>Change Percent: </strong><%= @stock.change_percent %><br/>
+  <strong>Market Cap: </strong><%= @stock.market_cap %>
 
-<%= link_to 'Edit', edit_stock_path(@stock) %> |
-<%= link_to 'Back', stocks_path %>
+  <div class="btn show">
+    <%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-primary" %> 
+    <%= link_to 'Destroy', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %>
+    <%= link_to 'Back', stocks_path, class: "btn btn-primary"  %>
+  </div>
+</div>
